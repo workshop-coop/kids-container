@@ -14,16 +14,11 @@ build-debian-xfce-vnc:
 build-debian-icewm-vnc:
 	docker build -t local/debian-icewm-vnc -f ./Dockerfile.debian-icewm-vnc .
 
-build-kids-container:
-	docker build -t local/kids-container -f ./Dockerfile.kids-container .
-
 build-rocky-xfce-vnc:
 	docker build -t local/rocky-xfce-vnc -f ./Dockerfile.rocky-xfce-vnc .
 
 build-rocky-icewm-vnc:
 	docker build -t local/rocky-icewm-vnc -f ./Dockerfile.rocky-icewm-vnc .
-
-run: run-debian-xfce-vnc
 
 run-debian-xfce-vnc:
 	docker run -ti --rm -p 6901:6901 -p 5901:5901 local/debian-xfce-vnc
