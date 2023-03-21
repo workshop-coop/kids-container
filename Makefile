@@ -1,5 +1,12 @@
+build: build-kids-container
 
-build: build-debian-xfce-vnc
+run: run-kids-container
+
+build-kids-container:
+	docker build -t local/kids-container -f ./Dockerfile.kids-container .
+
+run-kids-container:
+	docker run -ti --rm -p 6901:6901 -p 5901:5901 local/kids-container
 
 build-debian-xfce-vnc:
 	docker build -t local/debian-xfce-vnc -f ./Dockerfile.debian-xfce-vnc .
