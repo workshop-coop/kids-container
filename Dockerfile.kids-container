@@ -40,6 +40,8 @@ ADD ./src/debian/install/ $INST_SCRIPTS/
 RUN $INST_SCRIPTS/tools.sh
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
+
+
 ### Install custom fonts
 RUN $INST_SCRIPTS/install_custom_fonts.sh
 
@@ -60,7 +62,16 @@ RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
+
+### Install OpenJDK-17
+RUN $INST_SCRIPTS/java.sh
+
+###Install Eclipse
+RUN $INST_SCRIPTS/eclipse.sh
+
+
 USER 1000
 COPY TaurangaKids/ /headless/TaurangaKids
+
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
