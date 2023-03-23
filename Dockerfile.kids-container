@@ -62,13 +62,14 @@ RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
-
 ### Install OpenJDK-17
 RUN $INST_SCRIPTS/java.sh
 
 ###Install Eclipse
 RUN $INST_SCRIPTS/eclipse.sh
 
+### Install the ii stuff
+RUN $INST_SCRIPTS/ii.sh
 
 USER 1000
 COPY TaurangaKids/ /headless/TaurangaKids
