@@ -8,7 +8,7 @@
 
   outputs = { self, nixpkgs, nix-doom-emacs, ... }:
   let
-    system = "x86_64-linux";
+    system = "aarch64-darwin";
     pkgs = import nixpkgs { inherit system; };
     doom-emacs = nix-doom-emacs.packages.${system}.default.override {
       doomPrivateDir = ./doom.d;
