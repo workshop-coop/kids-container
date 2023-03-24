@@ -117,6 +117,13 @@ echo -e "\n\n------------------ VNC environment started ------------------"
 echo -e "\nVNCSERVER started on DISPLAY= $DISPLAY \n\t=> connect via VNC viewer with $VNC_IP:$VNC_PORT"
 echo -e "\nnoVNC HTML client started:\n\t=> connect via http://$VNC_IP:$NO_VNC_PORT/?password=...\n"
 
+## tunnel  to try.ii.nz with new key each time
+export TUNNEL_WIREGUARD_KEY="${TUNNEL_WIREGUARD_KEY:-$(wg genkey)}"
+export TUNNEL_API_URL=${TUNNEL_API_URL:-https://try.ii.nz}
+tunnel >$STARTUPDIR/tunnel.log 2>&1 &
+sleep 1 # Would be good to just wait till URL is available
+export TUNNEL_URL=$(grep "You can now connect" $STARTUPDIR/tunnel.log | sed 'sX.*\(https://.*\)X\1X')
+echo You can now connect to $TUNNEL_URL
 
 if [[ $DEBUG == true ]] || [[ $1 =~ -t|--tail-log ]]; then
     echo -e "\n------------------ $HOME/.vnc/*$DISPLAY.log ------------------"

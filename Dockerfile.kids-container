@@ -74,5 +74,6 @@ RUN $INST_SCRIPTS/ii.sh
 USER 1000
 COPY TaurangaKids/ /headless/TaurangaKids
 
+ENV VNC_PASSWORDLESS="true"
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
