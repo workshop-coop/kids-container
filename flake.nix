@@ -11,7 +11,7 @@
     system = "aarch64-darwin";
     pkgs = import nixpkgs { inherit system; };
     doom-emacs = nix-doom-emacs.packages.${system}.default.override {
-      doomPrivateDir = ./doom.d;
+    #   doomPrivateDir = ./doom.d;
     };
   in
   {
