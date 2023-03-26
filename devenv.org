@@ -1,0 +1,7 @@
+#+title: Devenv
+
+* Install
+#+begin_src tmate :window foo
+nix-env -iA cachix -f https://cachix.org/api/v1/install ; cachix use devenv
+nix-env -if https://github.com/cachix/devenv/tarball/latest
+#+end_src
