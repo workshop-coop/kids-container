@@ -2,3 +2,7 @@ target
 .idea
 *.iml
 *.log
+# Devenv
+.devenv*
+devenv.local.nix
+
