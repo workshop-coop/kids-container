@@ -11,6 +11,19 @@
     pkgs.git
     pkgs.curl
     pkgs.jq
+    pkgs.openjdk17
+    # pkgs.minecraft
+    pkgs.gopacked
+    pkgs.ferium
+    pkgs.minecraftServers.vanilla-1-19
+    # pkgs.minecraft-server-hibernation
+    pkgs.mcstatus
+    pkgs.mcrcon
+    # pkgs.lunar-client
+    # pkgs.home-assistant-component-tests.minecraft_server
+    # pkgs.jetbrains.jdk
+    pkgs.jetbrains.idea-community
+    pkgs.jetbrains-mono
   ];
   languages.go.enable = true;
   languages.java.enable = true;
